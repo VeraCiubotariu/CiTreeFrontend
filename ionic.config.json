@@ -1,0 +1,7 @@
+{
+  "name": "agriculture-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
