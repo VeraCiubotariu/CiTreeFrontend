@@ -1,0 +1,37 @@
+.paragraph {
+    font: bold 14px var(--font);
+    color: var(--dark-green);
+}
+
+.title {
+    font: bold 64px var(--font);
+    color: var(--dark-green);
+}
+
+.subtitle {
+    font: bold 32px var(--font);
+    color: var(--dark-green);
+}
+
+.option {
+    font: bold 18px var(--font);
+    color: var(--light-beige);
+}
+
+.option:hover {
+    color: var(--light-green);
+}
+
+.dark-button {
+    --background: var(--dark-green);
+    --color: var(--light-beige);
+    --border-radius: 8px;
+    font: 14px var(--font);
+}
+
+.light-button {
+    --background: var(--light-beige);
+    --color: var(--dark-green);
+    --border-radius: 8px;
+    font: 14px var(--font);
+}

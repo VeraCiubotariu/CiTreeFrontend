@@ -1,0 +1,12 @@
+ion-footer {
+    border-top: 1px solid var(--dark-green);
+}
+
+.footer-container {
+    background: var(--light-green);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 2%;
+}

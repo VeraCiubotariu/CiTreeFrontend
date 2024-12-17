@@ -1,0 +1,43 @@
+ion-toolbar {
+    --background: var(--dark-green);
+    max-width: 100px;
+    grid-row: span 3;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+ion-menu-button {
+    padding-bottom: 16px;
+    color: var(--light-beige);
+}
+
+.ion-padding {
+    --background: var(--light-green);
+}
+
+.title-content {
+    --background: var(--light-beige);
+    overflow: hidden;
+}
+
+.title-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    height: 100%;
+    align-items: center;
+    overflow: hidden;
+}
+
+.bullet-point {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 16px;
+}
+
+#main-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr 1fr auto;
+}

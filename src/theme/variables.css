@@ -1,2 +1,9 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+
+:root {
+    --light-green: #acac97;
+    --dark-green: #33372c;
+    --light-beige: #fbf7ef;
+    --font: "Roboto";
+}
