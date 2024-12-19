@@ -1,2 +1,2 @@
-# AgricultureAppFrontend
-Frontend for an agricultural app, made for the IPD class
+# CiTree App Frontend
+Frontend for a tree planting helper appm nade for the IPD class
