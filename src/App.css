@@ -29,6 +29,11 @@
     font: 14px var(--font);
 }
 
+.ion-padding {
+    height: 100%;
+    --background: var(--light-green);
+}
+
 .light-button {
     --background: var(--light-beige);
     --color: var(--dark-green);
@@ -37,10 +42,10 @@
 }
 
 .double-container {
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
-    height: 100%;
     align-items: center;
     overflow: hidden;
 }
@@ -48,8 +53,22 @@
 ion-toolbar {
     --background: var(--dark-green);
     max-width: 100px;
-    grid-row: span 3;
+    height: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+}
+
+.page-layout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.page-content {
+    height: 200%;
+}
+
+html, body, ion-app {
+    height: 100%;
+    margin: 0;
 }

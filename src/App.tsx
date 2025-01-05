@@ -1,4 +1,4 @@
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, useHistory } from 'react-router-dom';
 import {
   IonApp,
   IonButtons,
@@ -41,12 +41,75 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { Menu } from './components/Menu';
+import { loggedInOptions, notLoggedInOptions } from './utils/menu-option-rows';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from './store/AuthProvider';
+import LoginModal from './components/LoginModal';
+import SignupModal from './components/SignupModal';
+import { PrivateRoute } from './utils/PrivateRoute';
+import CityPickerPage from './pages/CityPickerPage';
+import { navigate } from 'ionicons/icons';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
+const App: React.FC = () => {
+  const history = useHistory();
+  const { authState, login, signup, logout } = useContext(AuthContext);
+  const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
+
+  const notLoggedInMenuOptions = {
+    ...notLoggedInOptions,
+    bottomOptions: [
+      {
+        optionName: 'Signup',
+        onClick: () => setIsSignupModalOpen(true),
+      },
+      {
+        optionName: 'Login',
+        onClick: () => setLoginModalOpen(true), // Toggle modal on login
+      },
+    ],
+  };
+
+  const loggedInMenuOptions = {
+    ...loggedInOptions,
+    topOptions: [
+      { optionName: 'My Journey', onClick: () => {} },
+      {
+        optionName: 'Scan a City',
+        onClick: () => history.push('/city-picker'),
+      },
+    ],
+    bottomOptions: [
+      {
+        optionName: 'Logout',
+        onClick: logout,
+      },
+    ],
+  };
+
+  return (
+    <IonApp>
+      {authState.loggedIn ? (
+        <Menu options={loggedInMenuOptions} />
+      ) : (
+        <Menu options={notLoggedInMenuOptions} />
+      )}
+
+      <LoginModal
+        isOpen={isLoginModalOpen}
+        onClose={() => setLoginModalOpen(false)}
+        onLogin={login}
+      />
+
+      <SignupModal
+        isOpen={isSignupModalOpen}
+        onClose={() => setIsSignupModalOpen(false)}
+        onSignup={signup}
+      />
+
       <IonRouterOutlet>
         <Route exact path="/home">
           <Home />
@@ -54,9 +117,10 @@ const App: React.FC = () => (
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
+        <PrivateRoute exact path="/city-picker" component={CityPickerPage} />
       </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+    </IonApp>
+  );
+};
 
 export default App;
