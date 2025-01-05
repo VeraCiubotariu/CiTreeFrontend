@@ -35,3 +35,21 @@
     --border-radius: 8px;
     font: 14px var(--font);
 }
+
+.double-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    height: 100%;
+    align-items: center;
+    overflow: hidden;
+}
+
+ion-toolbar {
+    --background: var(--dark-green);
+    max-width: 100px;
+    grid-row: span 3;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}

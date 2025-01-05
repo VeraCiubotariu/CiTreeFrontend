@@ -1,12 +1,3 @@
-ion-toolbar {
-    --background: var(--dark-green);
-    max-width: 100px;
-    grid-row: span 3;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-}
-
 ion-menu-button {
     padding-bottom: 16px;
     color: var(--light-beige);
@@ -18,15 +9,6 @@ ion-menu-button {
 
 .title-content {
     --background: var(--light-beige);
-    overflow: hidden;
-}
-
-.title-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-    height: 100%;
-    align-items: center;
     overflow: hidden;
 }
 

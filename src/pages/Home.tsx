@@ -1,36 +1,59 @@
 import {
   IonButton,
   IonButtons,
-  IonCol,
   IonContent,
-  IonFooter,
-  IonGrid,
-  IonHeader,
   IonImg,
   IonLabel,
-  IonMenu,
   IonMenuButton,
   IonPage,
-  IonRow,
-  IonTitle,
   IonToolbar,
+  IonModal,
 } from '@ionic/react';
 import './Home.css';
 import { Menu } from '../components/Menu';
 import { PageFooter } from '../components/PageFooter';
-import { useContext } from 'react';
-import { LoginContext } from '../store/LoginProvider';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../store/AuthProvider';
 import { loggedInOptions, notLoggedInOptions } from '../utils/menu-option-rows';
+import LoginModal from '../components/LoginModal';
+import SignupModal from '../components/SignupModal';
 
 const Home: React.FC = () => {
-  const { loggedIn } = useContext(LoginContext);
+  const { authState, login, signup, logout } = useContext(AuthContext);
+  const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
+
+  // Update the notLoggedInOptions to include the modal toggle
+  const notLoggedInMenuOptions = {
+    ...notLoggedInOptions,
+    bottomOptions: [
+      {
+        optionName: 'Signup',
+        onClick: () => setIsSignupModalOpen(true),
+      },
+      {
+        optionName: 'Login',
+        onClick: () => setLoginModalOpen(true), // Toggle modal on login
+      },
+    ],
+  };
+
+  const loggedInMenuOptions = {
+    ...loggedInOptions,
+    bottomOptions: [
+      {
+        optionName: 'Logout',
+        onClick: logout,
+      },
+    ],
+  };
 
   return (
     <>
-      {loggedIn ? (
-        <Menu options={loggedInOptions} />
+      {authState.loggedIn ? (
+        <Menu options={loggedInMenuOptions} />
       ) : (
-        <Menu options={notLoggedInOptions} />
+        <Menu options={notLoggedInMenuOptions} />
       )}
 
       <IonPage id="main-content">
@@ -40,7 +63,7 @@ const Home: React.FC = () => {
           </IonButtons>
         </IonToolbar>
         <IonContent className="title-content">
-          <div className="title-container">
+          <div className="double-container">
             <IonLabel className="title">
               Make your city
               <br />
@@ -52,7 +75,7 @@ const Home: React.FC = () => {
         </IonContent>
         <IonContent className="ion-padding">
           <div
-            className="title-container"
+            className="double-container"
             style={{
               padding: '32px',
               columnGap: '64px',
@@ -76,6 +99,18 @@ const Home: React.FC = () => {
           </IonButton>
         </PageFooter>
       </IonPage>
+
+      <LoginModal
+        isOpen={isLoginModalOpen}
+        onClose={() => setLoginModalOpen(false)}
+        onLogin={login}
+      />
+
+      <SignupModal
+        isOpen={isSignupModalOpen}
+        onClose={() => setIsSignupModalOpen(false)}
+        onSignup={signup}
+      />
     </>
   );
 };

@@ -1,14 +1,14 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import { LoginProvider } from './store/LoginProvider';
+import { AuthProvider } from './store/AuthProvider';
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
 root.render(
   <React.StrictMode>
-    <LoginProvider>
+    <AuthProvider>
       <App />
-    </LoginProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
