@@ -1,7 +1,7 @@
 import TreeView from './TreeView';
 import { useContext, useEffect, useState } from 'react';
 import { TreesContext } from '../store/TreesProvider';
-import { IonLoading } from '@ionic/react';
+import { IonLabel, IonLoading } from '@ionic/react';
 
 const TreeList = () => {
   const { treesState, getAll } = useContext(TreesContext);
@@ -32,8 +32,13 @@ const TreeList = () => {
           flexWrap: 'wrap',
         }}
       >
-        {!treesState.isFetching &&
-          data.map((tree) => <TreeView key={tree.id} tree={tree}></TreeView>)}
+        {!treesState.isFetching && treesState.trees.length > 0 ? (
+          data.map((tree) => <TreeView key={tree.id} tree={tree}></TreeView>)
+        ) : (
+          <IonLabel className="paragraph">
+            You can start adding your planted trees on the "+" button below...
+          </IonLabel>
+        )}
       </div>
     </>
   );

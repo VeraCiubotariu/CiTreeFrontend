@@ -83,3 +83,7 @@ html, body, ion-app {
 .title-content-page > .title {
     padding-bottom: 20px;
 }
+
+.title-content-page > .subtitle {
+    padding-bottom: 20px;
+}

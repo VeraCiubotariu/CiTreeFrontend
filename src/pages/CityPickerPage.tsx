@@ -14,7 +14,7 @@ const CityPickerPage = () => {
           <div>
             <IonLabel className="title">Your journey starts now</IonLabel>
             <br />
-            <IonLabel className="paragraph">Pick your city...</IonLabel>
+            <IonLabel className="subtitle">Pick your city...</IonLabel>
           </div>
           <MapPicker location={undefined}></MapPicker>
         </div>

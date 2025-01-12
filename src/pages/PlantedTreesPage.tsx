@@ -22,6 +22,10 @@ const PlantedTreesPage = () => {
           <IonLabel className="title">
             All your hard work towards a greener future
           </IonLabel>
+          <IonLabel className="subtitle">
+            Here you can visualize the trees you planted and the impact you
+            made.
+          </IonLabel>
           <TreeList />
         </div>
       </IonContent>

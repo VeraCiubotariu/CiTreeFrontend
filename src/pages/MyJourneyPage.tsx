@@ -19,7 +19,9 @@ const MyJourneyPage = () => {
           <IonButton
             style={{ alignSelf: 'flex-start' }}
             className="dark-button big-button"
-            onClick={() => {}}
+            onClick={() => {
+              history.push('/saved-targets');
+            }}
           >
             Saved Targets
           </IonButton>

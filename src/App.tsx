@@ -53,6 +53,7 @@ import MyJourneyPage from './pages/MyJourneyPage';
 import PlantedTreesPage from './pages/PlantedTreesPage';
 import TreeEditPage from './pages/TreeEditPage';
 import TargetViewPage from './pages/TargetViewPage';
+import SavedTargetsPage from './pages/SavedTargetsPage';
 
 setupIonicReact();
 
@@ -138,6 +139,11 @@ const App: React.FC = () => {
         />
         <PrivateRoute exact path="/new-tree" component={TreeEditPage} />
         <PrivateRoute exact path="/target-view" component={TargetViewPage} />
+        <PrivateRoute
+          exact
+          path="/saved-targets"
+          component={SavedTargetsPage}
+        />
       </IonRouterOutlet>
     </IonApp>
   );

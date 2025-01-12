@@ -12,6 +12,10 @@ const TargetViewPage = () => {
       <IonContent className="ion-padding">
         <div className="title-content-page">
           <IonLabel className="title">The red areas need some work</IonLabel>
+          <IonLabel className="subtitle">
+            The red areas on the map are the heat islands in the zone you
+            selected. They are great spots to plant trees in.
+          </IonLabel>
           <TargetViewer />
         </div>
       </IonContent>
