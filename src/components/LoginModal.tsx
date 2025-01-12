@@ -8,17 +8,21 @@ import {
   IonContent,
 } from '@ionic/react';
 import './Modal.css';
+import { Link } from 'react-router-dom';
+import { User } from '../model/user-types';
 
 type LoginModalProps = {
   isOpen: boolean;
   onClose: () => void;
   onLogin: (username: string, password: string) => void;
+  onSignup: () => void;
 };
 
 const LoginModal: React.FC<LoginModalProps> = ({
   isOpen,
   onClose,
   onLogin,
+  onSignup,
 }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -40,6 +44,11 @@ const LoginModal: React.FC<LoginModalProps> = ({
     setPassword('');
     setErrorMessage(undefined);
     onClose();
+  };
+
+  const handleSignup = () => {
+    handleClose();
+    onSignup();
   };
 
   return (
@@ -75,6 +84,18 @@ const LoginModal: React.FC<LoginModalProps> = ({
           <IonButton className="light-button" onClick={handleClose}>
             Cancel
           </IonButton>
+          <IonLabel
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            Don't have an account?{' '}
+            <IonButton fill="clear" onClick={handleSignup}>
+              Signup
+            </IonButton>
+          </IonLabel>
         </div>
       </IonContent>
     </IonModal>

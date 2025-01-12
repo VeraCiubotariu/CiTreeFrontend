@@ -49,7 +49,10 @@ import LoginModal from './components/LoginModal';
 import SignupModal from './components/SignupModal';
 import { PrivateRoute } from './utils/PrivateRoute';
 import CityPickerPage from './pages/CityPickerPage';
-import { navigate } from 'ionicons/icons';
+import MyJourneyPage from './pages/MyJourneyPage';
+import PlantedTreesPage from './pages/PlantedTreesPage';
+import TreeEditPage from './pages/TreeEditPage';
+import TargetViewPage from './pages/TargetViewPage';
 
 setupIonicReact();
 
@@ -76,7 +79,8 @@ const App: React.FC = () => {
   const loggedInMenuOptions = {
     ...loggedInOptions,
     topOptions: [
-      { optionName: 'My Journey', onClick: () => {} },
+      { optionName: 'Home', onClick: () => history.push('/home') },
+      { optionName: 'My Journey', onClick: () => history.push('/my-journey') },
       {
         optionName: 'Scan a City',
         onClick: () => history.push('/city-picker'),
@@ -102,6 +106,9 @@ const App: React.FC = () => {
         isOpen={isLoginModalOpen}
         onClose={() => setLoginModalOpen(false)}
         onLogin={login}
+        onSignup={() => {
+          setIsSignupModalOpen(true);
+        }}
       />
 
       <SignupModal
@@ -112,12 +119,25 @@ const App: React.FC = () => {
 
       <IonRouterOutlet>
         <Route exact path="/home">
-          <Home />
+          <Home openLogin={() => setLoginModalOpen(true)} />
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
         <PrivateRoute exact path="/city-picker" component={CityPickerPage} />
+        <PrivateRoute exact path="/my-journey" component={MyJourneyPage} />
+        <PrivateRoute
+          exact
+          path="/planted-trees"
+          component={PlantedTreesPage}
+        />
+        <PrivateRoute
+          exact
+          path="/planted-trees/:id"
+          component={TreeEditPage}
+        />
+        <PrivateRoute exact path="/new-tree" component={TreeEditPage} />
+        <PrivateRoute exact path="/target-view" component={TargetViewPage} />
       </IonRouterOutlet>
     </IonApp>
   );

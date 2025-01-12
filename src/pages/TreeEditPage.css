@@ -1,0 +1,5 @@
+.tree-input {
+    margin-top: 16px ;
+    margin-bottom: 64px;
+    --color: var(--dark-green);
+}

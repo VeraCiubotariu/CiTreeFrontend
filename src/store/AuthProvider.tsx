@@ -43,13 +43,13 @@ export const authReducer = (
       return {
         ...state,
         loggedIn: true,
-        user: action.payload,
+        user: action.payload as User,
       };
     case AUTH_ACTION.SIGNUP:
       return {
         ...state,
         loggedIn: true,
-        user: action.payload,
+        user: action.payload as User,
       };
     case AUTH_ACTION.LOGOUT:
       return {

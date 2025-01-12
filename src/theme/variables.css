@@ -3,6 +3,7 @@ http://ionicframework.com/docs/theming/ */
 
 :root {
     --light-green: #acac97;
+    --hover-green: #7c7c6c;
     --dark-green: #33372c;
     --light-beige: #fbf7ef;
     --font: "Roboto";

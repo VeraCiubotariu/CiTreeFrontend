@@ -1,0 +1,9 @@
+.big-button {
+    --padding-top: 80px;
+    --padding-bottom: 80px;
+    --padding-start: 260px;
+    --padding-end: 260px;
+    --border-radius: 32px;
+    padding: 20px;
+    font: 32px var(--font);
+}

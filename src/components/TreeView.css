@@ -1,0 +1,17 @@
+ion-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 260px;
+    padding: 30px;
+    --background: var(--light-green);
+    border: 1px solid var(--dark-green);
+    border-radius: 0;
+    margin: 20px;
+    text-align: center;
+}
+
+ion-card:hover {
+    --background: var(--hover-green);
+}

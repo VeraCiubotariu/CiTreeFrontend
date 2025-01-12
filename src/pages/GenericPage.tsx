@@ -1,22 +1,24 @@
-import {
-  IonButton,
-  IonButtons,
-  IonContent,
-  IonImg,
-  IonLabel,
-  IonMenuButton,
-  IonPage,
-  IonToolbar,
-} from '@ionic/react';
+import { IonButtons, IonMenuButton, IonPage, IonToolbar } from '@ionic/react';
 
-const GenericPage = ({ children, ...props }: { children: any }) => (
-  <IonPage className="page-layout" {...props}>
+const GenericPage = ({
+  hasFooter,
+  children,
+  ...props
+}: {
+  hasFooter: boolean;
+  children: any;
+}) => (
+  <IonPage className="page-layout" id="main-content" {...props}>
     <IonToolbar>
       <IonButtons>
         <IonMenuButton></IonMenuButton>
       </IonButtons>
     </IonToolbar>
-    <div style={{ height: '89%' }}>{children}</div>
+    {hasFooter ? (
+      <div style={{ height: '89%' }}>{children}</div>
+    ) : (
+      <div>{children}</div>
+    )}
   </IonPage>
 );
 

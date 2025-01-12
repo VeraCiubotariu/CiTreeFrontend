@@ -47,7 +47,8 @@
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     align-items: center;
-    overflow: hidden;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 ion-toolbar {
@@ -71,4 +72,14 @@ ion-toolbar {
 html, body, ion-app {
     height: 100%;
     margin: 0;
+}
+
+.title-content-page {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 100px 0 100px;
+}
+
+.title-content-page > .title {
+    padding-bottom: 20px;
 }
